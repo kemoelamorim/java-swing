@@ -4,15 +4,14 @@ import javax.swing.border.*;
 import java.awt.event.*;
 
 public class DisplayMessage {
-    public static void main(String[] args) {
-        
+    public static void main(String[] args){
         /* * Etapa 1: criar os componentes */
         JLabel msgLabel = new JLabel();
         JButton yesButton = new JButton();
         JButton noButton = new JButton();
 
         /* * Etapa 2: Defina as propriedades dos componentes */
-        msgLabel.setText(args[0]);
+        msgLabel.setText("Deseja continuar?");
         msgLabel.setBorder(new EmptyBorder(10,10,10,10));
         yesButton.setText((args.length >= 2)?args[1]:"Sim");
         noButton.setText((args.length >= 3)?args[2]:"Não");
@@ -20,7 +19,7 @@ public class DisplayMessage {
         /* * Etapa 3: criar contêineres para armazenar os componentes */
         JFrame f = new JFrame("Mensagem");
         JPanel p = new JPanel();
-        
+
         /* * Etapa 4: Especifique LayoutManagers para organizar os componentes nos contêineres */
         f.getContentPane().setLayout(new BorderLayout());
         p.setLayout(new FlowLayout());
@@ -31,10 +30,8 @@ public class DisplayMessage {
 
         // Adiciona o JLabel à janela, dizendo ao BorderLayout para colocá-lo na parte-inferior
         f.getContentPane().add(msgLabel, "Center");
-
         // Adiciona o Panel à janela, dizendo ao BorderLayout para colocá-lo na parte inferior
-        f.getContentPane().add(msgLabel, "South");
-
+        f.getContentPane().add(p, "South");
         /* * Etapa 6: Organizar para lidar com eventos na interface do usuário */
         yesButton.addActionListener(new ActionListener(){
             // Este método é chamado quando o botão Sim é clicado
@@ -44,12 +41,10 @@ public class DisplayMessage {
             // Este método é chamado quando o botão Não é clicado
             public void actionPerformed(ActionEvent e) { System.exit(1); }
         });
-
         /* * Etapa 7: Exiba a GUI para o usuário */ 
         // Define o tamanho da janela com base nos tamanhos de seus filhos 
         f.pack(); 
         // Torna a janela visível
-        f.isVisible();
-
+        f.setVisible(true);
     }
 }
