@@ -2,6 +2,7 @@
 - Java Foudation Class
   - Swing API
     - Containers
+      - Eles podem conter vários componentes, exemplo (JFrame é um container)
     - Componentes
     - LayoutManagers
     - Trabalhando com Menus
